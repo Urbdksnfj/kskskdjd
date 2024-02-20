@@ -59,15 +59,24 @@ def mycommands_on():
     TONE = "⭕️" if bool(IsBool()) else "❌"
 
     btns = [
-    KeyboardButton(text=f"اشعار الدخول {TONE} "),
-    KeyboardButton(text="قسم الاشتراك الاجباري"),
-    KeyboardButton(text="الاحصائيات"),
-    KeyboardButton(text="رساله الترحيب"),
-    KeyboardButton(text="الاذاعة"),
-    KeyboardButton(text="الادمينة"),
-    KeyboardButton(text="المحظورين"),
-    KeyboardButton(text="الردود العامة"),
-    KeyboardButton(text="اخفاء"),
+    
+        KeyboardButton(text=f"اشعار الدخول {TONE} "),
+     
+        KeyboardButton(text="قسم الاشتراك الاجباري"),
+     
+        KeyboardButton(text="الاحصائيات"),
+     
+        KeyboardButton(text="رساله الترحيب"),
+    
+        KeyboardButton(text="الاذاعة"),
+      
+        KeyboardButton(text="الادمينة"),
+      
+        KeyboardButton(text="المحظورين"),
+      
+        KeyboardButton(text="الردود العامة"),
+       
+        KeyboardButton(text="اخفاء"),
     ]
     mrk.add(*btns)
     return mrk
