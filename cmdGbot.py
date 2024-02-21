@@ -12,7 +12,7 @@ button2 = InlineKeyboardButton("اوامر التشغيل", callback_data="bc2")
 button3 = InlineKeyboardButton("اوامر الحمايه", callback_data="bc3")
 button4 = InlineKeyboardButton("اليوتيوب", callback_data="bc4")
 button5 = InlineKeyboardButton("الالعاب", callback_data="bc5")
-button6 = InlineKeyboardButton("اوامر القنوات", callback_data="bc6")
+button6 = InlineKeyboardButton("احا", callback_data="bc6")
 
 raw1 = [button1, button2]
 raw2 = [button3]
@@ -170,7 +170,7 @@ def cmdText(message: Message):
             )
     return Com_id_us
 
-  if (
+    if (
         msg_text in ["م6", "احا"]
         and Compulsory_subscription(message)
         and check_group(chat_id)
