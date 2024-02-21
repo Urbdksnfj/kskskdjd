@@ -12,14 +12,14 @@ button2 = InlineKeyboardButton("اوامر التشغيل", callback_data="bc2")
 button3 = InlineKeyboardButton("اوامر الحمايه", callback_data="bc3")
 button4 = InlineKeyboardButton("اليوتيوب", callback_data="bc4")
 button5 = InlineKeyboardButton("الالعاب", callback_data="bc5")
-button6 = InlineKeyboardButton("احا", callback_data="bc6")
+button6 = InlineKeyboardButton("اوامر القنوات", callback_data="bc6")
 
 raw1 = [button1, button2]
 raw2 = [button3]
 raw3 = [button6]
 raw4 = [button4, button5]
 
-keyboard = [raw1, raw2, raw3]
+keyboard = [raw1, raw2, raw3, raw4]
 
 
 def MyBelowListmrk(keyboard):
@@ -171,7 +171,7 @@ def cmdText(message: Message):
     return Com_id_us
 
     if (
-        msg_text in ["م6", "احا"]
+        msg_text in ["م6", "اوامر القنوات"]
         and Compulsory_subscription(message)
         and check_group(chat_id)
     ):
