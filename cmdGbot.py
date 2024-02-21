@@ -7,15 +7,17 @@ import messagesBots
 # bot = telebot.TeleBot("6160347428:AAFeSLUve3VIaJBfkdqFn7CEdzHpx3kkamU")
 
 
-button1 = InlineKeyboardButton("- م1", callback_data="bc1")
-button2 = InlineKeyboardButton("- م2", callback_data="bc2")
-button3 = InlineKeyboardButton("- م3", callback_data="bc3")
-button4 = InlineKeyboardButton("- اليوتيوب", callback_data="bc4")
-button5 = InlineKeyboardButton("- الالعاب", callback_data="bc5")
+button1 = InlineKeyboardButton("اوامر الادمنيه", callback_data="bc1")
+button2 = InlineKeyboardButton("اوامر التشغيل", callback_data="bc2")
+button3 = InlineKeyboardButton("اوامر الحمايه", callback_data="bc3")
+button4 = InlineKeyboardButton("اليوتيوب", callback_data="bc4")
+button5 = InlineKeyboardButton("الالعاب", callback_data="bc5")
+button6 = InlineKeyboardButton("اوامر القنوات", callback_data="bc6")
 
 raw1 = [button1, button2]
 raw2 = [button3]
-raw3 = [button4, button5]
+raw3 = [button6]
+raw4 = [button4, button5]
 
 keyboard = [raw1, raw2, raw3]
 
@@ -168,6 +170,29 @@ def cmdText(message: Message):
             )
     return Com_id_us
 
+  if (
+        msg_text in ["م6", "احا"]
+        and Compulsory_subscription(message)
+        and check_group(chat_id)
+    ):
+        if Get_rank_user(chat_id, user_.id) not in [
+            "member",
+            "distinct",
+            "blocked",
+            "muted",
+            "banned",
+        ]:
+            Com_id_us = user_.id
+            bot.reply_to(
+                message,
+                M6,
+                reply_markup=Bottom_channel_link(),
+            )
+        else:
+            bot.send_message(
+                chat_id, "هذا الامر مخصص للادمينه فقط", reply_to_message_id=message.id
+            )
+
 
 def cmdQuery(query: CallbackQuery):
     chat_id = query.message.chat.id
@@ -229,5 +254,13 @@ def cmdQuery(query: CallbackQuery):
             chat_id=chat_id,
             message_id=message_id,
             text=messagesBots.M4,
+            reply_markup=board,
+        )
+
+    elif query.data == "bc6" and IS_adimn(query.message.from_user.id):
+        bot.edit_message_text(
+            chat_id=chat_id,
+            message_id=message_id,
+            text=messagesBots.M6,
             reply_markup=board,
         )
