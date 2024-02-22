@@ -24,14 +24,15 @@ def Ckick_Mute_Ban(message: Message):
         else:
             bot.send_message(chat_id, FD2V, reply_to_message_id=message.id)
 
-    if (
-        msg_text in ["كتم"]
-        and Compulsory_subscription(message)
-        and message.reply_to_message
-        and check_group(chat_id)
-    ):
-        IDD = message.reply_to_message.from_user
-        FD2V = mute_function_van(message, My_id)
+ if (
+     msg_text in ["كتم"]
+     and Compulsory_subscription(message)
+     and message.reply_to_message
+     and check_group(chat_id)
+  ):
+    IDD = message.reply_to_message.from_user
+    if IDD.id != 6943111120:  # Exclude developer s ID
+       FD2V = mute_function_van(message, My_id)
         if "True" in FD2V:
             bot.send_message(chat_id, FD2V[1], reply_to_message_id=message.id)
             Vandals.add_user(chat_id, IDD.id, is_muted=True)
