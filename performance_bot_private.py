@@ -59,17 +59,39 @@ def mycommands_on():
     TONE = "⭕️" if bool(IsBool()) else "❌"
 
     btns = [
-    
+        KeyboardButton(text=f"اشعار الدخول {TONE} "),
+        KeyboardButton(text="قسم الاشتراك الاجباري"),
+    ]
+        KeyboardButton(text="الاحصائيات"),
+        KeyboardButton(text="رساله الترحيب"),
+    ]
+        KeyboardButton(text="الاذاعة"),
+        KeyboardButton(text="الادمينة"),
+    ]
+        KeyboardButton(text="المحظورين"),
+    ]
+        KeyboardButton(text="الردود العامة"),
+        KeyboardButton(text="اخفاء"),
+    ]
+    mrk.add(*btns)
+    return mrk
+
+from telegram import ReplyKeyboardMarkup, KeyboardButton
+
+def mycommands_on():
+    mrk = ReplyKeyboardMarkup(row_width=6)
+    TONE = "⭕️" if bool(IsBool()) else "❌"
+
+    btns = [
         KeyboardButton(text=f"اشعار الدخول {TONE} "),
         KeyboardButton(text="قسم الاشتراك الاجباري"),
         KeyboardButton(text="الاحصائيات"),
         KeyboardButton(text="رساله الترحيب"),
         KeyboardButton(text="الاذاعة"),
-        KeyboardButton(text="الادمينة"),
+        KeyboardButton(text="الادمنة"),
         KeyboardButton(text="المحظورين"),
         KeyboardButton(text="الردود العامة"),
         KeyboardButton(text="اخفاء"),
-   
     ]
     mrk.add(*btns)
     return mrk
@@ -137,7 +159,6 @@ def Chanell_Public_responses():
     ]
     mrk.add(*btns)
     return mrk
-
 
 def join_members(message: types.Message):
     global senderMsg
